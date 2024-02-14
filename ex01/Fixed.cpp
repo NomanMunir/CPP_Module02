@@ -6,7 +6,7 @@
 /*   By: nmunir <nmunir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:38:44 by nmunir            #+#    #+#             */
-/*   Updated: 2024/02/14 17:24:21 by nmunir           ###   ########.fr       */
+/*   Updated: 2024/02/14 18:05:04 by nmunir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,26 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-int Fixed::getRawBits( void ) const
+Fixed::Fixed(const int n)
 {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (_value);
+	std::cout << "Int constructor called " << _value << std::endl;
+	this->_value = static_cast<int>(roundf(n * (1 << _sBit)));	
 }
 
-void Fixed::setRawBits( int const raw )
+Fixed::Fixed(const float n)
 {
-	_value = raw;
+	std::cout << "Float constructor called" << std::endl;
+	this->_value = static_cast<int>(roundf(n * (1 << _sBit)));
+}
+
+int Fixed::toInt( void ) const
+{
+	return (roundf(this->toFloat()));
+}
+
+float Fixed::toFloat( void ) const
+{
+	return (this->_value / static_cast<float>(1 << _sBit));
 }
 
 Fixed::Fixed(const Fixed& other)
@@ -42,6 +53,12 @@ Fixed::Fixed(const Fixed& other)
 Fixed & Fixed::operator=(Fixed const & rhs )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_value = rhs.getRawBits();
+	this->_value = rhs._value;
 	return (*this);
+}
+
+std::ostream &  operator << (std::ostream & o, Fixed const & rhs)
+{
+	o << rhs.toFloat();
+	return o;
 }

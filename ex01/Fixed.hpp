@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmunir <nmunir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:38:06 by nmunir            #+#    #+#             */
-/*   Updated: 2024/02/14 17:22:06 by nmunir           ###   ########.fr       */
+/*   Created: 2024/02/14 15:38:49 by nmunir            #+#    #+#             */
+/*   Updated: 2024/02/14 17:51:14 by nmunir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#pragma once
 
-int main( void ) {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	c = b;
-	{
-		std::cout << a.getRawBits() << std::endl;
-		std::cout << b.getRawBits() << std::endl;
-		std::cout << c.getRawBits() << std::endl;
-	}
+#include <iostream>
+#include <cmath>
+class Fixed
+{
+	private:
+		int _value;
+		static const int _sBit = 8;
+	public:
+		Fixed();
+		Fixed(const int n);
+		Fixed(const float n);
+		~Fixed();
+		Fixed(const Fixed& other);
+		Fixed & operator=(Fixed const & rhs );
+		int toInt( void ) const;
+		float toFloat( void ) const;
+};
 
-return (1);
-}
+std::ostream &  operator << (std::ostream & o, Fixed const & rhs);
