@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmunir <nmunir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 09:37:28 by nmunir            #+#    #+#             */
-/*   Updated: 2024/02/19 10:31:22 by nmunir           ###   ########.fr       */
+/*   Created: 2024/02/20 16:48:00 by nmunir            #+#    #+#             */
+/*   Updated: 2024/02/20 17:39:08 by nmunir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "Fixed.hpp"
 
-class Fixed
+class Point
 {
 	private:
-		int _value;
-		const static int fractInt = 8;
+		Fixed const x;
+		Fixed const y;
 	public:
-		Fixed();
-		Fixed(const int intValue);
-		Fixed(const float floatValue);
-		Fixed(const Fixed& other);
-		Fixed& operator=(Fixed const & rhs);
-		~Fixed();
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		Point();
+		Point(const float x, const float y);
+		Point(const Point& other);
+		Point & operator=(const Point& rhs);
+		Fixed getX() const;
+		Fixed getY() const;
+		~Point();
 };
 
-std::ostream & operator <<(std::ostream & o, Fixed const & rhs);
+bool bsp( Point const a, Point const b, Point const c, Point const point);

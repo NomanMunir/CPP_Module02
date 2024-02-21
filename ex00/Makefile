@@ -6,7 +6,7 @@
 #    By: nmunir <nmunir@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 13:36:11 by nmunir            #+#    #+#              #
-#    Updated: 2024/02/14 16:06:49 by nmunir           ###   ########.fr        #
+#    Updated: 2024/02/15 15:18:24 by nmunir           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,3 +33,5 @@ fclean: clean
 	rm -f $(TARGET)
 
 re: fclean all
+
+.PHONY: all clean fclean re

@@ -6,14 +6,14 @@
 #    By: nmunir <nmunir@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 13:36:11 by nmunir            #+#    #+#              #
-#    Updated: 2024/02/15 15:15:58 by nmunir           ###   ########.fr        #
+#    Updated: 2024/02/20 17:35:35 by nmunir           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRCS = main.cpp Fixed.cpp \
+SRCS = main.cpp Fixed.cpp Point.cpp bsp.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 TARGET = Fixed

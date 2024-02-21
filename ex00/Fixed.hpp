@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmunir <nmunir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:38:49 by nmunir            #+#    #+#             */
-/*   Updated: 2024/02/14 16:45:39 by nmunir           ###   ########.fr       */
+/*   Created: 2024/02/19 09:37:28 by nmunir            #+#    #+#             */
+/*   Updated: 2024/02/20 17:41:44 by nmunir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ class Fixed
 {
 	private:
 		int _value;
-		static const int _sBit = 8;
+		const static int fractInt = 8;
 	public:
 		Fixed();
-		~Fixed();
 		Fixed(const Fixed& other);
-		Fixed & operator=(Fixed const & rhs );
+		Fixed& operator=(Fixed const & rhs);
+		~Fixed();
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 };
